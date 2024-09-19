@@ -1,7 +1,97 @@
 ---
+import { Image } from "astro:assets";
+
 import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/Container.astro";
+import { portraitImage } from "@/assets/images";
+import { GitHubIcon, LinkedInIcon } from "@/assets/icons/SocialIcons";
+
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 ---
 
 <Layout title="About - Răzvan Balota">
-    <div>hello</div>
+  <Container class="mt-16 sm:mt-32">
+    <div
+      class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
+    >
+      <div class="lg:pl-20">
+        <div class="max-w-xs px-2.5 lg:max-w-none">
+          <Image
+            src={portraitImage}
+            alt=""
+            class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+          />
+        </div>
+      </div>
+      <div class="lg:order-first lg:row-span-2">
+        <h1
+          class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+        >
+          I’m Razvan Balota.
+        </h1>
+        <div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Consequuntur pariatur alias praesentium magnam eligendi quibusdam
+            ullam, facilis possimus officia natus aliquid explicabo quam, quae
+            dicta tempore, aliquam atque. Neque, harum!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Consequuntur pariatur alias praesentium magnam eligendi quibusdam
+            ullam, facilis possimus officia natus aliquid explicabo quam, quae
+            dicta tempore, aliquam atque. Neque, harum!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Consequuntur pariatur alias praesentium magnam eligendi quibusdam
+            ullam, facilis possimus officia natus aliquid explicabo quam, quae
+            dicta tempore, aliquam atque. Neque, harum!
+          </p>
+        </div>
+      </div>
+      <div class="lg:pl-20">
+        <ul role="list" class="space-y-4">
+          <li>
+            <a
+              href="https://github.com/RazvanBalota"
+              aria-label="GitHub"
+              class="group flex text-sm font-medium transition text-zinc-200 hover:text-teal-500"
+            >
+              <GitHubIcon
+                className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500"
+              />
+              <span class="ml-4">See my GitHub</span>
+            </a>
+          </li>
+          <li class="pb-4">
+            <a
+              href="https://www.linkedin.com/in/razvan-balota/"
+              aria-label="LinkedIn"
+              class="group flex text-sm font-medium transition text-zinc-200 hover:text-teal-500"
+            >
+              <LinkedInIcon
+                className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500"
+              />
+              <span class="ml-4">See my LinkedIn</span>
+            </a>
+          </li>
+          <li
+            class="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+          >
+            <a
+              href="mailto:razvanbalota02@gmail.com"
+              aria-label="Email"
+              class="group flex text-sm font-medium transition text-zinc-200 hover:text-teal-500"
+            >
+              <EnvelopeIcon
+                className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500"
+              />
+              <span class="ml-4">razanbalota02@gmail.com</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </Container>
 </Layout>

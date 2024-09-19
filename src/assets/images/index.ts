@@ -7,3 +7,4 @@ export { default as robot } from "./robot.jpg";
 export { default as wcc } from "./wcc.png";
 export { default as utest } from "./utest.png";
 export { default as letter_f } from "./letter_f.png";
+export { default as portraitImage } from "./portraitImage.jpg";
