@@ -1,17 +1,21 @@
 ---
 import { Image } from "astro:assets";
-import clsx from 'clsx';
+import clsx from "clsx";
 import { palms, waves, macbook, robot, sky } from "@/assets/images";
-const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+
+const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
 ---
 
 <div class="mt-16 sm:mt-20">
-    <div class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8 sm:overflow-visible">
-      {[waves, macbook, palms,robot, sky].map((image, imageIndex) => (
+  <div
+    class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8 2xl:overflow-visible"
+  >
+    {
+      [waves, macbook, palms, robot, sky].map((image, imageIndex) => (
         <div
           class={clsx(
-            'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
-            rotations[imageIndex % rotations.length],
+            "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800",
+            rotations[imageIndex % rotations.length]
           )}
         >
           <Image
@@ -21,6 +25,7 @@ const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
             class="absolute inset-0 h-full w-full object-cover"
           />
         </div>
-      ))}
-    </div>
+      ))
+    }
+  </div>
 </div>

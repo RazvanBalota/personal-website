@@ -1,0 +1,49 @@
+---
+import Role from "./Role.astro";
+import Button from "./Button.astro";
+import { ArrowDownIcon, BriefcaseIcon } from "@heroicons/react/24/outline";
+import { wcc, utest, letter_f } from "@/assets/images";
+
+const resume = [
+  {
+    company: "WhiteCity Code",
+    title: "Frontend Developer",
+    logo: wcc,
+    start: "2023",
+    end: {
+      label: "Present",
+      dateTime: new Date().getFullYear().toString(),
+    },
+  },
+  {
+    company: "Freelance",
+    title: "Software developer",
+    logo: letter_f,
+    start: "2023",
+    end: "2023",
+  },
+  {
+    company: "uTest",
+    title: "Software tester",
+    logo: utest,
+    start: "2022",
+    end: "2023",
+  },
+];
+---
+
+<div class="rounded-2xl border border-zinc-700/40 p-6">
+  <h2 class="flex text-sm font-semibold text-zinc-100">
+    <BriefcaseIcon className="h-6 w-6 flex-none text-zinc-500" />
+    <span class="ml-3">Work</span>
+  </h2>
+  <ol class="mt-6 space-y-4">
+    {resume.map((role, roleIndex) => <Role key={roleIndex} role={role} />)}
+  </ol>
+  <Button href="#" variant="secondary" classes="group mt-6 w-full">
+    Download CV
+    <ArrowDownIcon
+      className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50"
+    />
+  </Button>
+</div>
