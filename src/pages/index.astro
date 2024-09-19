@@ -3,33 +3,46 @@ import Layout from "@/layouts/Layout.astro";
 import SocialLink from "@/components/SocialLink.astro";
 import Photos from "@/components/Photos.astro";
 
-import {GitHubIcon, LinkedInIcon} from "@/assets/icons/SocialIcons"
+import { GitHubIcon, LinkedInIcon } from "@/assets/icons/SocialIcons";
+import Container from "@/components/Container.astro";
+import Card from "@/components/Card.astro";
 ---
+
 <Layout title="Răzvan Balota">
-	<div class="max-w-2xl pt-10 lg:max-w-4xl lg:px-12">
-	  <div class="px-4 sm:px-8 lg:px-12">
-		<h1 class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-		  Software engineer.
-		</h1>
-		<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-		  I’m Răzvan, an enthusiastic software engineer passionate about writing clean code and solving complex problems.
-		</p>
-		<div class="mt-6 flex gap-6">
-		  <SocialLink
-			href="https://github.com/RazvanBalota"
-			aria-label="GitHub"
-		  >
-			<GitHubIcon className="h-6 w-6 transition fill-zinc-400 group-hover:fill-zinc-300" />
-		  </SocialLink>
-		  <SocialLink
-			href="https://www.linkedin.com/in/razvan-balota/"
-			aria-label="LinkedIn"
-		  >
-			<LinkedInIcon className="h-6 w-6 transition fill-zinc-400 group-hover:fill-zinc-300" />
-		  </SocialLink>
-		</div>
-	  </div>
-	</div>
-	<Photos />
-  </Layout>
-  
+  <Container>
+    <h1
+      class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+    >
+      Software engineer.
+    </h1>
+    <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+      I’m Răzvan, an enthusiastic software engineer passionate about writing
+      clean code and solving complex problems.
+    </p>
+    <div class="mt-6 flex gap-6">
+      <SocialLink href="https://github.com/RazvanBalota" aria-label="GitHub">
+        <GitHubIcon
+          className="h-6 w-6 transition fill-zinc-400 group-hover:fill-zinc-300"
+        />
+      </SocialLink>
+      <SocialLink
+        href="https://www.linkedin.com/in/razvan-balota/"
+        aria-label="LinkedIn"
+      >
+        <LinkedInIcon
+          className="h-6 w-6 transition fill-zinc-400 group-hover:fill-zinc-300"
+        />
+      </SocialLink>
+    </div>
+  </Container>
+  <Photos />
+  <Container class="mt-24 md:mt-28">
+    <div
+      class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
+    >
+      <div class="flex flex-col gap-16">
+        <Card /><Card /><Card />
+      </div>
+    </div>
+  </Container>
+</Layout>

@@ -1,0 +1,47 @@
+---
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
+---
+
+<article
+  class={clsx(Astro.props.class, "group relative flex flex-col items-start")}
+>
+  <div
+    class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl bg-zinc-800/50"
+  >
+  </div>
+  <a href="#">
+    <span
+      class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"
+      >
+      <h2 class="text-base font-semibold tracking-tight text-zinc-100 relative z-10">
+        <a>difffusion.ro</a>
+      </h2>
+      <p class="relative z-10 mt-2 text-sm text-zinc-400">
+        I developed the official website for difffusion festival using a
+        cutting-edge tech stack to create an engaging user experience. Utilizing
+        Astro for optimal performance, TailwindCSS for a responsive and stylish
+        design, React for dynamic interfaces, Mapbox GL for interactive maps,
+        and TypeScript for type safety.
+      </p>
+      <div
+        aria-hidden="true"
+        class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
+      >
+        Read showcase
+        <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+      </div>
+      <div
+        class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500 pl-3.5"
+      >
+        <span
+          class="absolute inset-y-0 left-0 flex items-center"
+          aria-hidden="true"
+        >
+          <span class="h-4 w-0.5 rounded-full bg-zinc-500"></span>
+        </span>
+        23 September, 2022
+      </div></span
+    >
+  </a>
+</article>

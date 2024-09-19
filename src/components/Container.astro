@@ -1,0 +1,9 @@
+---
+import clsx from "clsx";
+---
+
+<div class={clsx(`max-w-2xl pt-10 lg:max-w-5xl lg:px-12`, Astro.props.class)}>
+  <div class="px-4 sm:px-8 lg:px-12">
+    <slot />
+  </div>
+</div>
