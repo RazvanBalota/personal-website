@@ -1,26 +1,30 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/Container.astro";
 import SocialLink from "@/components/SocialLink.astro";
+import Card from "@/components/Card.astro";
 import Photos from "@/components/Photos.astro";
+import Resume from "@/components/Resume.astro";
 
 import { GitHubIcon, LinkedInIcon } from "@/assets/icons/SocialIcons";
-import Container from "@/components/Container.astro";
-import Card from "@/components/Card.astro";
 ---
 
 <Layout title="Răzvan Balota">
   <Container>
     <h1
-      class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+      class="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl"
     >
       Software engineer.
     </h1>
-    <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+    <p class="mt-6 text-base text-zinc-400">
       I’m Răzvan, an enthusiastic software engineer passionate about writing
       clean code and solving complex problems.
     </p>
     <div class="mt-6 flex gap-6">
-      <SocialLink href="https://github.com/RazvanBalota" aria-label="GitHub">
+      <SocialLink  
+        href="https://github.com/RazvanBalota" 
+        aria-label="GitHub"
+      >
         <GitHubIcon
           className="h-6 w-6 transition fill-zinc-400 group-hover:fill-zinc-300"
         />
@@ -42,6 +46,9 @@ import Card from "@/components/Card.astro";
     >
       <div class="flex flex-col gap-16">
         <Card /><Card /><Card />
+      </div>
+      <div class="lg:pl-16 xl:pl-24">
+        <Resume />
       </div>
     </div>
   </Container>
