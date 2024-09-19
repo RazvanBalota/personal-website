@@ -14,7 +14,7 @@ const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
       [waves, macbook, palms, robot, sky].map((image, imageIndex) => (
         <div
           class={clsx(
-            "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800",
+            "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl sm:w-72 sm:rounded-2xl bg-zinc-800",
             rotations[imageIndex % rotations.length]
           )}
         >
