@@ -9,7 +9,6 @@ import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/16/solid";
 import clsx from "clsx";
 
 import avatarImage from "@/assets/images/avatar.webp";
-import { MoonIcon } from "@heroicons/react/24/outline";
 
 function NavItem({
   href,
@@ -18,13 +17,17 @@ function NavItem({
   href: string;
   children: React.ReactNode;
 }) {
+  const isActive = window.location.pathname === href;
   return (
     <li>
       <a
         href={href}
-        className="relative block px-3 py-2 transition hover:text-teal-400">
+        className="relative block px-3 py-2 transition hover:text-teal-400"
+      >
         {children}
-        <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-400/40" />
+        {isActive && (
+          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-400/40" />
+        )}
       </a>
     </li>
   );
@@ -34,9 +37,9 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<"nav">) {
   return (
     <nav {...props}>
       <ul className="flex rounded-full px-3 text-sm font-medium shadow-lg shadow-zinc-800/5 bg-zinc-800/90 text-zinc-200 space-x-5 ring-1 ring-white/10">
-        <NavItem href="#">About</NavItem>
-        <NavItem href="#">Projects</NavItem>
-        <NavItem href="#">Work experience</NavItem>
+        <NavItem href="/about">About</NavItem>
+        <NavItem href="/projects">Projects</NavItem>
+        <NavItem href="/work-experience">Work experience</NavItem>
       </ul>
     </nav>
   );
@@ -51,9 +54,7 @@ function MobileNavItem({
 }) {
   return (
     <li>
-      <a
-        href={href}
-        className="block py-2">
+      <a href={href} className="block py-2">
         {children}
       </a>
     </li>
@@ -76,20 +77,21 @@ function MobileNavigation(
       <PopoverPanel
         focus
         transition
-        className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl  p-8 ring-1  duration-150 data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in bg-zinc-900 ring-zinc-800">
+        className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl  p-8 ring-1  duration-150 data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in bg-zinc-900 ring-zinc-800"
+      >
         <div className="flex flex-row-reverse items-center justify-between">
-          <PopoverButton
-            aria-label="Close menu"
-            className="-m-1 p-1">
+          <PopoverButton aria-label="Close menu" className="-m-1 p-1">
             <XMarkIcon className="h-6 w-6 text-zinc-400" />
           </PopoverButton>
           <h2 className="text-sm font-medium text-zinc-400">Navigation</h2>
         </div>
         <nav className="mt-6">
           <ul className="-my-2 divide-y divide-zinc-100 text-base divide-zinc-100/5 text-zinc-300">
-            <MobileNavItem href="#">About</MobileNavItem>
-            <MobileNavItem href="#">Projects</MobileNavItem>
-            <MobileNavItem href="#">Work experience</MobileNavItem>
+            <MobileNavItem href="/about">About</MobileNavItem>
+            <MobileNavItem href="/projects">Projects</MobileNavItem>
+            <MobileNavItem href="/work-experience">
+              Work experience
+            </MobileNavItem>
           </ul>
         </nav>
       </PopoverPanel>
@@ -121,7 +123,8 @@ function Avatar({ large = false, className = "", ...props }) {
       href="/"
       aria-label="Home"
       className={clsx(className, "pointer-events-auto")}
-      {...props}>
+      {...props}
+    >
       <img
         src={avatarImage.src}
         alt=""
@@ -136,7 +139,7 @@ function Avatar({ large = false, className = "", ...props }) {
 }
 
 export default function Header() {
-  let isHomePage = true;
+  let isHomePage = window.location.pathname === "/";
 
   let headerRef = useRef<React.ElementRef<"div">>(null);
   let avatarRef = useRef<React.ElementRef<"div">>(null);
@@ -244,11 +247,12 @@ export default function Header() {
   return (
     <>
       <header
-        className="pointer-events-none relative z-50 flex flex-none flex-col"
+        className="pointer-events-none relative z-50 flex flex-none flex-col px-4 lg:px-24"
         style={{
           height: "var(--header-height)",
           marginBottom: "var(--header-mb)",
-        }}>
+        }}
+      >
         {isHomePage && (
           <>
             <div
@@ -256,17 +260,19 @@ export default function Header() {
               className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
             />
             <div
-              className="top-0 order-last -mb-3 pt-3 px-4 lg:px-24"
+              className="top-0 order-last -mb-3 pt-3 "
               style={{
                 position:
                   "var(--header-position)" as React.CSSProperties["position"],
-              }}>
+              }}
+            >
               <div
                 className="top-[var(--avatar-top,theme(spacing.3))] w-full"
                 style={{
                   position:
                     "var(--header-inner-position)" as React.CSSProperties["position"],
-                }}>
+                }}
+              >
                 <div className="relative">
                   <AvatarContainer
                     className="absolute left-0 top-3 origin-left transition-opacity"
@@ -291,9 +297,9 @@ export default function Header() {
           style={{
             position:
               "var(--header-position)" as React.CSSProperties["position"],
-          }}>
-          <div
-            className="top-[var(--header-top,theme(spacing.6))] w-full">
+          }}
+        >
+          <div className="top-[var(--header-top,theme(spacing.6))] w-full">
             <div className="relative flex gap-4">
               <div className="flex flex-1">
                 {!isHomePage && (
@@ -307,9 +313,7 @@ export default function Header() {
                 <DesktopNavigation className="pointer-events-auto hidden md:block" />
               </div>
               <div className="flex justify-end md:flex-1">
-                <div className="pointer-events-auto">
-                 
-                </div>
+                <div className="pointer-events-auto"></div>
               </div>
             </div>
           </div>
