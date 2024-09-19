@@ -1,0 +1,50 @@
+---
+import Container from "@/components/Container.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header";
+
+type Props = {
+  title: string;
+  heading: string;
+  intro: string;
+};
+
+const { title, heading, intro } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-black sm:px-8">
+    <div class="mx-auto max-w-7xl bg-zinc-900 ring-1 ring-zinc-300/30">
+      <Header client:only="react" />
+      <Container class="mt-16 sm:mt-32">
+        <header class="max-w-2xl">
+          <h1
+            class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+          >
+            {heading}
+          </h1>
+          <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            {intro}
+          </p>
+        </header>
+        {
+          <slot /> && (
+            <div class="mt-16 sm:mt-20">
+              <slot />
+            </div>
+          )
+        }
+      </Container>
+      <Footer />
+    </div>
+  </body>
+</html>
