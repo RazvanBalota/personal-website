@@ -2,34 +2,8 @@
 import Role from "./Role.astro";
 import Button from "./Button.astro";
 import { ArrowDownIcon, BriefcaseIcon } from "@heroicons/react/24/outline";
-import { wcc, utest, letter_f } from "@/assets/images";
+import { resume } from "@/data/resume";
 
-const resume = [
-  {
-    company: "WhiteCity Code",
-    title: "Frontend Developer",
-    logo: wcc,
-    start: "2023",
-    end: {
-      label: "Present",
-      dateTime: new Date().getFullYear().toString(),
-    },
-  },
-  {
-    company: "Freelance",
-    title: "Software developer",
-    logo: letter_f,
-    start: "2023",
-    end: "2023",
-  },
-  {
-    company: "uTest",
-    title: "Software tester",
-    logo: utest,
-    start: "2022",
-    end: "2023",
-  },
-];
 ---
 
 <div class="rounded-2xl border border-zinc-700/40 p-6">
