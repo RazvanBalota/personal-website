@@ -3,7 +3,7 @@ import Role from "./Role.astro";
 import Button from "./Button.astro";
 import { ArrowDownIcon, BriefcaseIcon } from "@heroicons/react/24/outline";
 import { resume } from "@/data/resume";
-
+import pdfResume from "@/assets/resume.pdf";
 ---
 
 <div class="rounded-2xl border border-zinc-700/40 p-6">
@@ -14,7 +14,13 @@ import { resume } from "@/data/resume";
   <ol class="mt-6 space-y-4">
     {resume.map((role, roleIndex) => <Role key={roleIndex} role={role} />)}
   </ol>
-  <Button href="#" variant="secondary" classes="group mt-6 w-full">
+  <Button
+    href={pdfResume}
+    target="_blank"
+    rel="noreferrer"
+    variant="secondary"
+    classes="group mt-6 w-full"
+  >
     Download CV
     <ArrowDownIcon
       className="h-4 w-4 transition group-hover:stroke-zinc-50 group-active:stroke-zinc-50"
