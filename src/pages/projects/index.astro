@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+
+import SimpleLayout from "@/layouts/SimpleLayout.astro";
+import { Card } from "@/components/Card";
+
+import { logoAltnet, logoAI3, logoDifffusion, logoCoderDojo, logoMelculzen } from "@/assets/images";
+import LinkIcon from "@heroicons/react/24/solid/LinkIcon";
+
+const projects = [
+  {
+    name: "altnet",
+    description:
+      "Tailored software solutions to help businesses thrive in the digital world.",
+    link: { href: "https://altnet.ro", label: "altnet.ro" },
+    logo: logoAltnet,
+  },
+  {
+    name: "AI3",
+    description:
+      "Empowering innovation and collaboration as Alba's first IT cluster, driving digital transformation and growth in the region.",
+    link: { href: "https://ai3.ro", label: "ai3.ro" },
+    logo: logoAI3,  
+  },
+  {
+    name: "difffusion",
+    description:
+      "A cutting-edge digital festival celebrating innovation, technology, and creativity in the digital age.",
+    link: { href: "https://difffusion.ro", label: "difffusion.ro" },
+    logo: logoDifffusion,
+  },
+  {
+    name: "CoderDojo Alba Iulia",
+    description:
+      "Inspiring young minds to explore coding, creativity, and technology through fun and interactive programming sessions.",
+    link: { href: "https://coderdojo.ai3.ro", label: "coderdojo.ai3.ro" },
+    logo: logoCoderDojo,
+  },
+  {
+    name: "Melculzen",
+    description:"Red amber, musk, jasmine, rose, royal amber, lavender, and lotus flower from distant Egypt.",
+    link: { href: "https://melculzen.ro", label: "melculzen.ro" },
+    logo: logoMelculzen,
+  },
+];
+---
+
+<SimpleLayout
+  title="Projects - Răzvan Balota"
+  heading="Things I’ve built."
+  intro="Over the years, I've had the chance to work on a variety of projects, each contributing to my growth as a developer. Here are a few highlights that stand out."
+>
+  <ul
+    role="list"
+    class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    {
+      projects.map((project) => (
+        <Card as="li" key={project.name}>
+          <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 border border-zinc-700/50 bg-zinc-800">
+            <Image src={project.logo} alt="" class="h-8 w-8" />
+          </div>
+          <h2 class="mt-6 text-base font-semibold text-zinc-100">
+            <Card.Link href={project.link.href}>{project.name}</Card.Link>
+          </h2>
+          <Card.Description>{project.description}</Card.Description>
+          <p class="relative z-10 mt-6 flex text-sm font-medium  transition group-hover:text-teal-500 text-zinc-200">
+            <LinkIcon className="h-6 w-6 flex-none" />
+            <span class="ml-2">{project.link.label}</span>
+          </p>
+        </Card>
+      ))
+    }
+  </ul>
+</SimpleLayout>
