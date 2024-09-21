@@ -1,0 +1,54 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/Container.astro";
+import ArrowLeftIcon from "@heroicons/react/24/solid/ArrowLeftIcon";
+import { formatDate } from "@/lib/formatDate";
+
+type Props = {
+  post: CollectionEntry<"posts">;
+};
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("posts");
+  return blogEntries.map((post: any) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={`${post.slug} - Răzvan Balota`}>
+  <Container class="mt-16 lg:mt-24">
+    <div class="xl:relative">
+      <div class="mx-auto max-w-2xl">
+        <a
+          href="/articles"
+          aria-label="Go back to articles"
+          class="group mb-8 flex h-10 w-10 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 transition lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:left-0 xl:mt-0 border border-zinc-700/50 bg-zinc-800 ring-0 ring-white/10 hover:border-zinc-700 hover:ring-white/20"
+        >
+          <ArrowLeftIcon
+            className="h-4 w-4 transition stroke-zinc-500 group-hover:stroke-zinc-400"
+          />
+        </a>
+        <article>
+          <header class="flex flex-col">
+            <time
+              date-time={post.data.pubDate}
+              class="order-first flex items-center text-base text-zinc-500"
+            >
+              <span class="h-4 w-0.5 rounded-full bg-zinc-500"></span>
+              <span class="ml-3">{formatDate(post.data.pubDate)}</span>
+            </time>
+          </header>
+          <div class="mt-8 prose prose-invert">
+            <Content />
+          </div>
+        </article>
+      </div>
+    </div>
+  </Container>
+</Layout>
