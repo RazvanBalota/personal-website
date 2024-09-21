@@ -1,12 +1,12 @@
 ---
 title: difffusion festival
-description: For the first edition of the difffusion digital festival, held in Alba Iulia, I had the exciting task of developing the official website. The festival, celebrating innovation, technology, and digital art, needed an online presence that could match its creative and cutting-edge vibe. Here’s a look at how I brought this project to life.
+description: difffusion - the first edition of the digital festival, held in Alba Iulia, I had the exciting task of developing the official website. The festival, celebrating innovation, technology, and digital art, needed an online presence that could match its creative and cutting-edge vibe. Here’s a look at how I brought this project to life.
 pubDate: 2024-10-18
-image: articles/difffusion.webp
+image: ""
 ---
 
 
-# Building the Official Website for difffusion festival: A Journey in Web Development
+# difffusion festival - a journey in web development
 
 For the first edition of the [difffusion digital festival]((https://difffusion.ro)), held in Alba Iulia, I had the exciting task of developing the official website. The festival, celebrating innovation, technology, and digital art, needed an online presence that could match its creative and cutting-edge vibe. Here’s a look at how I brought this project to life.
 
