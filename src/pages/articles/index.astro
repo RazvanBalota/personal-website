@@ -1,9 +1,47 @@
 ---
+import { Card } from "@/components/Card";
 import SimpleLayout from "@/layouts/SimpleLayout.astro";
+import { formatDate } from "@/lib/formatDate";
+import { getCollection } from "astro:content";
+
+let articles = await getCollection("posts");
 ---
 
 <SimpleLayout
   title="Blog - Răzvan Balota"
   heading="Thoughts & Ideas"
   intro="Here’s where I share my journey as a developer—projects, lessons, and ideas worth exploring. Dive in and join the conversation!"
-></SimpleLayout>    
+>
+  <div class="md:border-l md:pl-6 md:border-zinc-700/40">
+    <div class="flex max-w-3xl flex-col space-y-16">
+      {
+        articles.map((article) => (
+          <article class="md:grid md:grid-cols-4 md:items-baseline">
+            <Card className="md:col-span-3">
+              <Card.Title href={`/articles/${article.slug}`}>
+                {article.data.title}
+              </Card.Title>
+              <Card.Eyebrow
+                as="time"
+                date-time={article.data.pubDate}
+                className="md:hidden"
+                decorate
+              >
+                {formatDate(article.data.pubDate)}
+              </Card.Eyebrow>
+              <Card.Description>{article.data.description}</Card.Description>
+              <Card.Cta>Read article</Card.Cta>
+            </Card>
+            <Card.Eyebrow
+              as="time"
+              date-time={article.data.pubDate}
+              className="mt-1 hidden md:block"
+            >
+              {formatDate(article.data.pubDate)}
+            </Card.Eyebrow>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</SimpleLayout>
