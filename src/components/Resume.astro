@@ -3,7 +3,7 @@ import Role from "./Role.astro";
 import Button from "./Button.astro";
 import { ArrowDownIcon, BriefcaseIcon } from "@heroicons/react/24/outline";
 import { resume } from "@/data/resume";
-import pdfResume from "@/assets/resume.pdf";
+import Răzvan_Balota_Resume from "@/assets/Răzvan-Balota-Resume.pdf";
 ---
 
 <div class="rounded-2xl border border-zinc-700/40 p-6">
@@ -15,7 +15,7 @@ import pdfResume from "@/assets/resume.pdf";
     {resume.map((role, roleIndex) => <Role key={roleIndex} role={role} />)}
   </ol>
   <Button
-    href={pdfResume}
+    href={Răzvan_Balota_Resume}
     target="_blank"
     rel="noreferrer"
     variant="secondary"
