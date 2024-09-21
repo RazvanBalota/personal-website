@@ -24,16 +24,18 @@ const { title, heading, intro } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-black sm:px-8">
-    <div class="mx-auto max-w-7xl bg-zinc-900 ring-1 ring-zinc-300/30 min-h-screen">
+    <div
+      class="mx-auto max-w-7xl bg-zinc-900 ring-1 ring-zinc-300/30 min-h-screen"
+    >
       <Header client:only="react" />
       <Container class="mt-16 sm:mt-32">
         <header class="max-w-2xl">
           <h1
-            class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+            class="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100"
           >
             {heading}
           </h1>
-          <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <p class="mt-6 text-base text-zinc-400">
             {intro}
           </p>
         </header>
