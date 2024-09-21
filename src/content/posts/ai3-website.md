@@ -1,7 +1,7 @@
 ---
 title: ai3
 description: "The making of AI3 - the official website for AI3, the first IT cluster in Alba Iulia. AI3 is a vibrant community of technology enthusiasts, entrepreneurs, and innovators united by a shared goal: to cultivate a thriving technological ecosystem in Alba"
-pubDate: 2024-10-19
+pubDate: 2024-10-14
 image: articles/ai3-website.png
 ---
 
