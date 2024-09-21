@@ -1,2 +1,1 @@
-# [my personal website](https://razvanbalota.dev)
-
+[razvanbalota.dev](https://razvanbalota.dev)
