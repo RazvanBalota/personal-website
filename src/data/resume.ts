@@ -3,7 +3,7 @@ import { wcc, utest, letter_f } from "@/assets/images";
 export const resume = [
   {
     company: "WhiteCity Code",
-    title: "Frontend Developer",
+    title: "Frontend developer",
     logo: wcc,
     start: "2023",
     end: {
